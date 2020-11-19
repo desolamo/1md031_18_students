@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
 
+    <head>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+        <script type="text/javascript" src="benders.js"defer></script>
+        <script src="js/js_script.js"></script>
+        <script src="https://vuejs.org/js/vue.js"></script>
+        <script src="js/vue_script.js"></script>
         <meta charset="utf-8"/>
 
 
       <section class="heading">
-            <section class="headingtxt">
+            <section id="headingtxt">
                <h2> BENDER QUEEN</h2>
                <h1>Welcome to Bender Queen!</h1>
-                   <meta charset="utf-8"/>
-             </section>
-
-
-        <td><img id="image" src="https://i.pinimg.com/originals/5e/45/9b/5e459b2a17cd1f6a29ea15150d41f653.png"alt="Span" title="fire" width="1200" height="200" ></td>
-</section>
+            </section>
+      <td><img id="image" src="https://i.pinimg.com/originals/5e/45/9b/5e459b2a17cd1f6a29ea15150d41f653.png"alt="Span" title="fire" width="1200" height="200" ></td>
+    </section>
 
     </head>
 
@@ -28,7 +30,18 @@
       <h3>Bender Selection</h3>
       <p>Choose your fighter</p>
 
-      <table>
+<ul class = "wrapper" id="benderID">
+  <div v-for="bender in benders">
+    <div>  {{ bender.name }} : {{bender.KCAL}}   </div>
+    <img :src = "bender.image">
+  <li v-if= "bender.lactose == true" > Contains Lactose </li>
+  <li v-else > Lactose Free </li>
+  <li v-if= "bender.gluten == true" > Contains Gluten </li>
+  <li v-else > Gluten Free </li>
+  </div>
+</ul>
+
+  <!--    <table>
     <thead>
         <tr>
             <th>The Waterbender</th>
@@ -90,11 +103,10 @@
 <tfoot>
 </tfoot>
 </table>
+-->
+ </span>
+ </section>
 
- </span> </section>
-
-
-      <section\>
 
       <section class="deliveryspec">
         <span id="deliveryid">
