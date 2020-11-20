@@ -4,17 +4,17 @@
     <head>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
 
-        <script type="text/javascript" src="benders.js"defer></script>
-        <script src="js/js_script.js"></script>
-        <script src="https://vuejs.org/js/vue.js"></script>
-        <script src="js/vue_script.js"></script>
+        <script type="text/javascript" src="js/benders.js" defer></script>
+        <script src="js/js_script.js" defer></script>
+        <script src="https://vuejs.org/js/vue.js" defer></script>
+        <script src="js/vue_script.js" defer></script>
         <meta charset="utf-8"/>
 
 
       <section class="heading">
             <section id="headingtxt">
-               <h2> BENDER QUEEN</h2>
-               <h1>Welcome to Bender Queen!</h1>
+               <h2> BENDER KING</h2>
+               <h1>Welcome to Bender King!</h1>
             </section>
       <td><img id="image" src="https://i.pinimg.com/originals/5e/45/9b/5e459b2a17cd1f6a29ea15150d41f653.png"alt="Span" title="fire" width="1200" height="200" ></td>
     </section>
@@ -31,15 +31,26 @@
       <p>Choose your fighter</p>
 
 <ul class = "wrapper" id="benderID">
+
   <div v-for="bender in benders">
     <div>  {{ bender.name }} : {{bender.KCAL}}   </div>
-    <img :src = "bender.image">
-  <li v-if= "bender.lactose == true" > Contains Lactose </li>
-  <li v-else > Lactose Free </li>
-  <li v-if= "bender.gluten == true" > Contains Gluten </li>
-  <li v-else > Gluten Free </li>
+    <button class="button button"><img :src = "bender.image" width="150" height="100">
+  <div v-if= "bender.lactose == true" > Contains Lactose </div>
+  <div v-else > Lactose Free </div>
+  <div v-if= "bender.gluten == true" > Contains Gluten </div>
+  <div v-else > Gluten Free </div>
+
   </div>
+
+  <input type="checkbox" id="myCheck1" onclick="checkFun()">
+  <input type="checkbox" id="myCheck2" onclick="checkFun()">
+  <input type="checkbox" id="myCheck3" onclick="checkFun()">
+  <input type="checkbox" id="myCheck4" onclick="checkFun()">
+  <input type="checkbox" id="myCheck5" onclick="checkFun()">
+
 </ul>
+
+
 
   <!--    <table>
     <thead>
@@ -131,7 +142,7 @@
               <input type="house" id="house" name="em" required="required" placeholder="House number">
           </p>
         </form>
-      <section\>
+      </section>
 
   <section>
       <h3>Payment</h3>
@@ -166,7 +177,10 @@
       </form>
     <section\>
           <h3>Order confirmation</h3>
-<input type="submit" value="Place my order!">
+
+
+<button id = orders v-on:click="markDone(key)">Place my order!</button>
+<!--<button class="confirmationbutton"><input type="submit" value="Place my order!"></button>-->
           <main\>
       <footer>
         <hr>
