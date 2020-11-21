@@ -2,6 +2,14 @@
 <html lang="en">
 
     <head>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>DELI-VERY MAP</title>
+      <link rel="stylesheet" href="css/deli-very.css">
+      <script src="/vue/vue.js" defer></script>
+      <script src="/socket.io/socket.io.js" defer></script>
+      <!--<script src="js/deli-very.js" defer></script> -->
+
         <link rel="stylesheet" type="text/css" href="/css/style.css">
 
         <script type="text/javascript" src="js/benders.js" defer></script>
@@ -9,7 +17,6 @@
         <script src="https://vuejs.org/js/vue.js" defer></script>
         <script src="js/vue_script.js" defer></script>
         <meta charset="utf-8"/>
-
 
       <section class="heading">
             <section id="headingtxt">
@@ -22,7 +29,7 @@
     </head>
 
     <body style = "background-color: #7CB2AA;">
-      <main>
+      <main id="totalID">
 
       <section class="fighterselection">
         <span id="selectionid">
@@ -35,12 +42,13 @@
   <div v-for="bender in benders">
     <div>  {{ bender.name }} : {{bender.KCAL}}   </div>
     <button class="button button"><img :src = "bender.image" width="150" height="100">
+  <!--  <input type="checkbox"> -->
   <div v-if= "bender.lactose == true" > Contains Lactose </div>
   <div v-else > Lactose Free </div>
   <div v-if= "bender.gluten == true" > Contains Gluten </div>
   <div v-else > Gluten Free </div>
-
   </div>
+
 
   <input type="checkbox" id="myCheck1">
   <input type="checkbox" id="myCheck2">
@@ -115,8 +123,8 @@
 </tfoot>
 </table>
 -->
- </span>
- </section>
+</span>
+</section>
 
 
       <section class="deliveryspec">
@@ -133,15 +141,30 @@
               <label for="email ">E-mail address</label><br>
               <input type="text" id="email" name="ln" placeholder="E-mail address">
           </p>
-          <p>
+<!--          <p>
               <label for="street">Street</label><br>
               <input type="street" id="street" name="em" required="required" placeholder="Street name">
           </p>
           <p>
               <label for="house">House</label><br>
               <input type="house" id="house" name="em" required="required" placeholder="House number">
-          </p>
-        </form>
+          </p> -->
+      </form>
+
+
+
+        <h4> Please indicate the delivery location </h4>
+        <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+        <div class="view-box">
+          <div id="dots" v-on:click="addOrder">
+              <div
+                v-for="(order, key) in orders"
+                v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                {{key}}
+              </div>
+          </div>
+        </div>
+
       </section>
 
   <section>
@@ -155,36 +178,37 @@
               <option>Send cash in letter</option>
           </select>
       </p>
-    <section\>
+    </section>
 
     <section> <!-- MOOD SELECTION-->
       <h3>Mood specification</h3>
       <p>Which mood are you in?</p>
     <form>
       <p>
-          <label for="mood">Happy</label><br>
-          <input type="radio" id="mood" name="md" required="required" placeholder="happy">
+          <label for="happy">Happy</label><br>
+          <input type="radio" id="happy" name="mood" required="required" placeholder="happy" value="happy">
+
       </p>
       <p>
-          <label for="mood ">Sad</label><br>
-          <input type="radio" id="mood" name="md" placeholder="sad">
+          <label for="sad ">Sad</label><br>
+          <input type="radio" id="sad" name="mood" required="required" placeholder="sad" value="happy">
       </p>
       <p>
-          <label for="mood">Prefer not to say</label><br>
-          <input type="radio" id="mood" name="md" required="required" placeholder="no" checked="checked">
+          <label for="no">Prefer not to say</label><br>
+          <input type="radio" id="no" name="mood" required="required" checked="checked" placeholder="no" value="Prefer not to say">
 
       </p>
       </form>
-    <section\>
+    </section>
           <h3>Order confirmation</h3>
 
 
 <button id = orders v-on:click="markDone()">Place my order!</button>
 <!--<button class="confirmationbutton"><input type="submit" value="Place my order!"></button>-->
-          <main\>
+</main/>
       <footer>
         <hr>
       &copy; 2020 ATLA AB<br> If you want to contact us you have to use smoke signals.
-      <footer\>
+    </footer>
     </body>
 </html>
