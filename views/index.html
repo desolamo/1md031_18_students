@@ -35,13 +35,13 @@
         <span id="selectionid">
 
       <h3>Bender Selection</h3>
-      <p>Choose your fighter</p>
+      <p>Choose your fighter (please check the box for the benders you want to order)</p>
 
 <ul class = "wrapper" id="benderID">
 
   <div v-for="bender in benders">
     <div>  {{ bender.name }} : {{bender.KCAL}}   </div>
-    <button class="button button"><img :src = "bender.image" width="150" height="100">
+    <button class="button button"> <img :src = "bender.image" width="150" height="100">
   <!--  <input type="checkbox"> -->
   <div v-if= "bender.lactose == true" > Contains Lactose </div>
   <div v-else > Lactose Free </div>
@@ -199,10 +199,10 @@
       </p>
       </form>
     </section>
-          <h3>Order confirmation</h3>
 
 
-<button id = orders v-on:click="markDone()">Place my order!</button>
+<button id = orders v-on:click="markDone()" >Place my order!</button>
+
 <!--<button class="confirmationbutton"><input type="submit" value="Place my order!"></button>-->
 </main/>
       <footer>

@@ -10,8 +10,8 @@ body {
      display: grid;
      grid-gap: 1px;
      grid-template-columns: 20% 20% 20% 20% 20% ;
-     background-color: #fff;
-     color: #444;
+     background-color: #BAE0E0;
+     color: #BAE0E0;
  }
  .benderbox {
       background-color: #444;
@@ -79,5 +79,5 @@ transition-duration: 0.4s;
 }
 
 .button:hover {
-  background-color: green;
+  background-color: #FB9A5E;
   opacity: 1;
