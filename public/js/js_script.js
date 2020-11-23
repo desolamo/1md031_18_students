@@ -10,7 +10,7 @@ function checkFun() {
   var checkBox4 = document.getElementById("myCheck4");
   var checkBox5 = document.getElementById("myCheck5");
 
-
+  benderSelectedArray = [];
 
   // If the checkbox is checked the varuable benderselected gets the value of the latest selected bender
   if (checkBox1.checked){
