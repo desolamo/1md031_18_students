@@ -1,12 +1,14 @@
 'use strict';
 var socket = io();
+
 var vm = new Vue({
    el: '#totalID',
    data: {
           benders: benderlist,
           orders: {},
           mapLocation: {details: {x:0 , y:0}},
-          a: 1
+          a: 1,
+          orderPlaced: false
    },
   /* created: function () {
      socket.on('initialize', function (data) {
@@ -50,10 +52,15 @@ var vm = new Vue({
 
                            },
 
+    orderConfirmation: function(){
+
+
+    },
+
      markDone: function() {
          checkFun(),
          this.addOrder(),
-         console.log("BLA"),
+         this.orderPlaced = true;
          console.log("An order has been placed")
    },
  }
