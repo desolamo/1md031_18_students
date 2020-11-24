@@ -7,8 +7,10 @@ var vm = new Vue({
           benders: benderlist,
           orders: {},
           mapLocation: {details: {x:0 , y:0}},
-          a: 1,
-          orderPlaced: false
+          a: 0,
+          orderPlaced: false,
+          items: [],
+          info: []
    },
   /* created: function () {
      socket.on('initialize', function (data) {
@@ -47,8 +49,7 @@ var vm = new Vue({
                                  customerInfo: [customerInfoArray]
 
                                });
-                               console.log(benderSelectedArray);
-                               console.log(customerInfoArray);
+
 
                            },
 
@@ -60,7 +61,11 @@ var vm = new Vue({
      markDone: function() {
          checkFun(),
          this.addOrder(),
-         this.orderPlaced = true;
+         this.info = benderSelectedArray
+         this.items = customerInfoArray
+         console.log(benderSelectedArray);
+         console.log(customerInfoArray);
+         this.orderPlaced = true,
          console.log("An order has been placed")
    },
  }

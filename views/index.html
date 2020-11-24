@@ -204,12 +204,17 @@
 
 <button id = orders v-on:click="markDone()">Place my order!</button>
 
+
+
 <div v-if = "orderPlaced">
-   <h3>Order confirmation</h3>
-   <p> order.customerInfo.join("<br>")</p>
-   <h3>Benders ordered:</h3>
-   <p> order.orderItems.join("<br>")</p>
-<div/>
+
+   <h3>Order Confirmation</h3>
+   <h4>Customer Details:</h4>
+   <p> {{items.join(", ")}}</p>
+   <h4>Benders Ordered:</h4>
+   <p>{{ info.join(", ") }}</p>
+
+</div>
 
 </main/>
       <footer>
